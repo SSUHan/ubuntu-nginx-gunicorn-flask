@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
@@ -6,4 +6,8 @@ app = Flask(__name__)
 def index():
 	return "hello ljs93kr!!"
 
+@app.route('/data')
+def data():
+    data = {"names": ["John", "Jacob", "Julie", "Jennifer"]}
+    return jsonify(data)
 
