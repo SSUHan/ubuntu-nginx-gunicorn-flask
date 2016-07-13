@@ -4,7 +4,7 @@ from flask import jsonify
 
 @app.route('/')
 def index():
-	return "hello ljs93kr!!"
+	return "hello ljs93kr22222!!"
 
 @app.route('/data')
 def data():
