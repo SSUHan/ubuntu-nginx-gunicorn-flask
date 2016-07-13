@@ -1,8 +1,10 @@
-from sqlalchemy import Column, Integer, String, DateTime
-from database import Base
-import datetime, time
+import datetime
 
-class User(Base):
+from app import db
+from sqlalchemy import Column, String, DateTime
+
+
+class User(db.Model):
 	__tablename__ = 'user_table'
 	user_id = Column(String(30), primary_key=True)
 	user_name = Column(String(40))
@@ -16,13 +18,4 @@ class User(Base):
 	def __repr__(self):
 		return '{user_id : "%s", user_name : "%s", created : "%s"}' %\
 				{self.user_id, self.user_name, self.created}
-
-
-
-
-
-
-
-
-
 
