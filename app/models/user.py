@@ -19,3 +19,5 @@ class User(db.Model):
 		return '{user_id : "%s", user_name : "%s", created : "%s"}' %\
 				{self.user_id, self.user_name, self.created}
 
+
+
