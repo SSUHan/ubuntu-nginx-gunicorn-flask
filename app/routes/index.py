@@ -1,5 +1,5 @@
 from app import app, db
-from flask import jsonify
+from flask import jsonify, request
 from app.models.user import User
 
 @app.route('/')
@@ -11,14 +11,15 @@ def data():
 	data = {"names": ["John", "Jacob", "Julie", "Jennifer"]}
 	return jsonify(data)
 
-@app.route('/db_insert')
+@app.route('/db_insert', methods=['GET'])
 def db_insert():
-	# person_one = User('person_1', 'hello world')
-	# person_two = User('person_2', 'bye world')
-	#
-	# db.session.add(person_one)
-	# db.session.add(person_two)
-	# db.session.commit()
+	user_id = request.args.get('user_id')
+	user_name = request.args.get('user_name')
+
+	person = User(user_id, user_name)
+
+	db.session.add(person)
+	db.session.commit()
 
 	output = User.query.all()
 	string = ""
