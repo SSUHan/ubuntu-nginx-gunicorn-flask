@@ -4,7 +4,7 @@ from app.models.user import User
 
 @app.route('/')
 def index():
-	return "hello ljs93444444333222!!"
+	return "hello ljs93kr!!"
 
 @app.route('/data')
 def data():
